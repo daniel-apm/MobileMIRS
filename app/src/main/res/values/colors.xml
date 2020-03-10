@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7FA998</color>
+    <color name="colorPrimaryDark">#7FA998</color>
+    <color name="colorAccent">#6A8CAF</color>
+    <color name="selectedColumn">#FFB805</color>
+    <color name="clearFilter">#00FFFFFF</color>
+    <color name="colorHeader">#BBBBBB</color>
+    <color name="colorBackground">#7FA998</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlueButton">#6A8CAF</color>
+    <color name="colorRedButton">#CE8080</color>
+    <color name="colorItem">#DF8543</color>
+    <color name="colorEngine">#F1F1B0</color>
+    <color name="colorHeaderList">#8DB7A6</color>
+    <color name="colorDialog">#D1D8E4</color>
+</resources>

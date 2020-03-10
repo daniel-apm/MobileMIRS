@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="layout_multi_line_header" type="id" />
+    <item name="layout_column_header" type="id" />
+    <item name="layout_row_header" type="id" />
+    <item name="layout_content" type="id" />
+    <item name="table_content" type="id" />
+</resources>

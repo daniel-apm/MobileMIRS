@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="6">
+
+    <TextView
+        android:id="@+id/label_text"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textColor="@android:color/black"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="Text"
+        android:textSize="16sp" />
+
+    <RadioGroup
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/radio_group"
+        android:paddingLeft="20dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="3"
+        android:weightSum="3"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/damaged_input_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@drawable/damaged_radio_button"
+            android:gravity="center" />
+
+
+        <RadioButton
+            android:id="@+id/checked_input_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@drawable/checked_radio_button"
+            android:gravity="center"
+            android:layout_gravity="center"
+            />
+
+
+        <RadioButton
+            android:id="@+id/unchecked_input_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:button="@drawable/unchecked_radio_button" />
+
+    </RadioGroup>
+
+
+
+</LinearLayout>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="Nama Dokumen"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/edit_text_document"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_weight="1.5"
+            android:textSize="16sp"
+            android:hint="Isi nama dokumen"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="Tanggal"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/text_view_date"
+            android:paddingLeft="8dp"
+            android:text="Date here..."
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="Code Engine"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <Spinner
+            android:id="@+id/spinner_engine"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_weight="1.5"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="Nama Engine"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/edit_text_engine"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_weight="1.5"
+            android:textSize="16sp"
+            android:hint="Isi nama engine"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="Code Kapal"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <Spinner
+            android:id="@+id/spinner_ship"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_weight="1.5"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="Nama Kapal"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/edit_text_ship"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_weight="1.5"
+            android:textSize="16sp"
+            android:hint="Isi nama kapal"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="16dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:text="Add"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</LinearLayout>
