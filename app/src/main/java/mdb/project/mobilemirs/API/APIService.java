@@ -1,7 +1,10 @@
 package mdb.project.mobilemirs.API;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import mdb.project.mobilemirs.Model.DetailPartRequestModel;
 
 public class APIService {
 
@@ -33,7 +36,49 @@ public class APIService {
         return params;
     }
 
-    public JSONObject getDetailPartRequest(String documentId) {
+    public JSONObject postPartRequestDetail(DetailPartRequestModel model) {
+        params = new JSONObject();
+        JSONArray data = new JSONArray();
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put(ParamKey.KEY_PART_CENTER_ID, model.getPartId());
+            obj.put(ParamKey.KEY_PART_CENTER_NAME, model.getPartName());
+            obj.put(ParamKey.KEY_PART_CENTER_MERK, model.getMerk());
+            obj.put(ParamKey.KEY_PART_CENTER_QTY, model.getQuantity());
+            obj.put(ParamKey.KEY_PART_CENTER_REQ_DATE, model.getReqDate());
+            data.put(obj);
+            params.put(ParamKey.KEY_DETAIL_PART_CENTER, data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return params;
+    }
+
+    public JSONObject appendPartRequestDetail(DetailPartRequestModel model, String documentId) {
+        params = new JSONObject();
+        try {
+            params.put(ParamKey.KEY_PART_CENTER_PARENT, documentId);
+            params.put(ParamKey.KEY_PART_CENTER_QTY, model.getQuantity());
+            params.put(ParamKey.KEY_PART_CENTER_ID, model.getPartId());
+            params.put(ParamKey.KEY_PART_CENTER_REQ_DATE, model.getReqDate());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return params;
+    }
+
+    public JSONObject deletePartRequestDetail(String parent, int idx) {
+        params = new JSONObject();
+        try {
+            params.put(ParamKey.KEY_PART_CENTER_PARENT, parent);
+            params.put(ParamKey.KEY_PART_CENTER_LINE_ID, idx);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return params;
+    }
+
+    public JSONObject putDocumentId(String documentId) {
         params = new JSONObject();
         try {
             params.put(ParamKey.KEY_DOCUMENT_ID, documentId);

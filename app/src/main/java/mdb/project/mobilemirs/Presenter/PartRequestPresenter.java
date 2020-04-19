@@ -1,7 +1,7 @@
 package mdb.project.mobilemirs.Presenter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 
@@ -44,6 +44,13 @@ public class PartRequestPresenter {
         service.postDataVolley(MethodKey.KEY_POST_PART_CENTER, params.postPartCenter(document, date, shipCode, shipName, opinion));
     }
 
+    public void deletePartRequestData(String documentId) {
+        initDeleteCallback();
+        service = new VolleyService(resultCallback, context);
+        service.postDataVolley(MethodKey.KEY_DELETE_PART_CENTER, params.putDocumentId(documentId));
+    }
+
+
     private void initPartRequestCallback() {
         resultCallback =  new IResultJSON() {
             @Override
@@ -67,7 +74,22 @@ public class PartRequestPresenter {
 
             @Override
             public void notifyError(VolleyError error) {
-                presenterPartRequestCallback.connectFailed("Can't connect to server");
+                presenterPartRequestCallback.showMessage("Can't connect to server");
+            }
+        };
+    }
+
+    private void initDeleteCallback() {
+        resultCallback = new IResultJSON() {
+            @Override
+            public void notifySuccess(JSONObject response) {
+                presenterPartRequestCallback.showMessage("Delete Part Request Success");
+                initPartRequestData();
+            }
+
+            @Override
+            public void notifyError(VolleyError error) {
+                presenterPartRequestCallback.showMessage("Delete Part Request Failed");
             }
         };
     }
@@ -76,13 +98,13 @@ public class PartRequestPresenter {
         resultCallback = new IResultJSON() {
             @Override
             public void notifySuccess(JSONObject response) {
-                presenterPartRequestCallback.connectFailed("Post Part Request Success");
+                presenterPartRequestCallback.showMessage("Post Part Request Success");
                 initPartRequestData();
             }
 
             @Override
             public void notifyError(VolleyError error) {
-                presenterPartRequestCallback.connectFailed("Post Part Request Failed");
+                presenterPartRequestCallback.showMessage("Post Part Request Failed");
             }
         };
     }

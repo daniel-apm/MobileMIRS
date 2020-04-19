@@ -28,16 +28,11 @@ public class EngineFragment extends Fragment implements IEngine {
 
     private RecyclerView recycler;
     private IItem fragmentCallback;
-    private int position;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_engine, container, false);
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            position = bundle.getInt("Position", 0);
-        }
         recycler = view.findViewById(R.id.recycler_engine);
         recycler.setLayoutManager(new GridLayoutManager(getContext(), 2));
         TextView dateText = view.findViewById(R.id.text_view_date);
@@ -63,7 +58,7 @@ public class EngineFragment extends Fragment implements IEngine {
 
     @Override
     public void selectEngine(String engineName) {
-        fragmentCallback.changeFragment(engineName, position);
+        fragmentCallback.changeFragment(engineName);
     }
 
     @Override

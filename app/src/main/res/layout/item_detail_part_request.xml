@@ -17,7 +17,7 @@
             android:id="@+id/item_number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.75"
+            android:layout_weight="0.65"
             android:textStyle="bold"
             android:text="No"
             android:gravity="center"
@@ -27,7 +27,7 @@
             android:id="@+id/item_part_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:textStyle="bold"
             android:text="Part Name"
             android:gravity="center"
@@ -37,7 +37,7 @@
             android:id="@+id/item_merk"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.85"
             android:textStyle="bold"
             android:text="Merk"
             android:gravity="center"
@@ -57,11 +57,20 @@
             android:id="@+id/item_req_date"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1.15"
             android:textStyle="bold"
             android:text="Req Date"
             android:gravity="center"
             android:textColor="@android:color/black"/>
+
+        <ImageView
+            android:id="@+id/button_delete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.85"
+            android:src="@drawable/ic_delete"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

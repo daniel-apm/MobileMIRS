@@ -8,5 +8,7 @@ public class MethodKey {
     public static final String KEY_GET_PART_CENTER = "https://dev-mirs.multiinti.io/api/resource/Order Part Center?fields=[\"name\", \"nama_dokumen_order_part_center\", \"tanggal_order_part_center\", \"code_kapal\", \"nama_kapal\", \"opini_order_part_center\", \"workflow_state\"]";
     public static final String KEY_POST_PART_CENTER = "https://dev-mirs.multiinti.io/api/resource/Order Part Center";
     public static final String KEY_GET_DETAIL_PART_CENTER = "https://dev-mirs.multiinti.io/api/method/mirs.multi_inti_resources_sejahtera.doctype.order_part_center.order_part_center.get_one";
-
+    public static final String KEY_DELETE_PART_CENTER = "https://dev-mirs.multiinti.io/api/method/mirs.multi_inti_resources_sejahtera.doctype.order_part_center.order_part_center.delete_order_part_center";
+    public static final String KEY_POST_DETAIL_PART_CENTER = "https://dev-mirs.multiinti.io/api/method/mirs.multi_inti_resources_sejahtera.doctype.order_part_center.order_part_center.create_order_part_center_detail";
+    public static final String KEY_DELETE_DETAIL_PART_CENTER = "https://dev-mirs.multiinti.io/api/method/mirs.multi_inti_resources_sejahtera.doctype.order_part_center.order_part_center.delete_order_part_center_detail";
 }

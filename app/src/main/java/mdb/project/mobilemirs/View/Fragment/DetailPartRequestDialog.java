@@ -5,14 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +21,7 @@ import java.util.ArrayList;
 
 import mdb.project.mobilemirs.Interface.IDetailPartRequest;
 import mdb.project.mobilemirs.Manager.SessionManager;
-import mdb.project.mobilemirs.Model.PartCenterModel;
+import mdb.project.mobilemirs.Model.DetailPartRequestModel;
 import mdb.project.mobilemirs.Presenter.DetailPartRequestPresenter;
 import mdb.project.mobilemirs.R;
 
@@ -39,7 +37,7 @@ public class DetailPartRequestDialog extends BottomSheetDialogFragment implement
     private EditText etQuantity;
     private Button btnSubmit, btnCancel;
     private IDetailPartRequest dialogCallback;
-    private ArrayList<PartCenterModel> partCenterList;
+    private ArrayList<DetailPartRequestModel> partCenterList;
     private SessionManager session;
 
     @Nullable
@@ -54,7 +52,7 @@ public class DetailPartRequestDialog extends BottomSheetDialogFragment implement
         tvPartName = view.findViewById(R.id.text_view_part_center);
         tvMerk = view.findViewById(R.id.text_view_merk);
         tvType = view.findViewById(R.id.text_view_type);
-        if (getContext()!= null) {
+        if (getContext() != null) {
             session = new SessionManager(getContext());
         }
         String date = session.getStoredString(SessionManager.KEY_DATE);
@@ -68,10 +66,10 @@ public class DetailPartRequestDialog extends BottomSheetDialogFragment implement
         return view;
     }
 
-    private void connectSpinner(ArrayList<PartCenterModel> partCenterList) {
+    private void connectSpinner(ArrayList<DetailPartRequestModel> partCenterList) {
         ArrayList<String> partCenterId = new ArrayList<>();
-        for(int i = 0; i < partCenterList.size(); i++) {
-            partCenterId.add(partCenterList.get(i).getPartCenterId());
+        for (int i = 0; i < partCenterList.size(); i++) {
+            partCenterId.add(partCenterList.get(i).getPartId());
         }
         if (getContext() != null) {
             ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, partCenterId);
@@ -84,7 +82,7 @@ public class DetailPartRequestDialog extends BottomSheetDialogFragment implement
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         tvPartName.setText(partCenterList.get(position).getPartName());
         tvMerk.setText(partCenterList.get(position).getMerk());
-        tvType.setText(partCenterList.get(position).getTyoe());
+        tvType.setText(partCenterList.get(position).getType());
     }
 
     @Override
@@ -96,11 +94,32 @@ public class DetailPartRequestDialog extends BottomSheetDialogFragment implement
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_submit:
-                Toast.makeText(getContext(), "Coming soon!", Toast.LENGTH_SHORT).show();
+                if (etQuantity.getText().toString().equals("") || etQuantity.getText().toString().equals("0")) {
+                    dialogCallback.showMessage("Please enter the quantity");
+                } else {
+                    DetailPartRequestModel model = new DetailPartRequestModel();
+                    model.setPartId(spinner.getSelectedItem().toString());
+                    model.setPartName(tvPartName.getText().toString());
+                    model.setMerk(tvMerk.getText().toString());
+                    model.setQuantity(Integer.parseInt(etQuantity.getText().toString()));
+                    model.setReqDate(tvDate.getText().toString());
+                    dialogCallback.restartAdapter(model);
+                    dismiss();
+                }
                 break;
             case R.id.button_cancel:
                 dismiss();
                 break;
+        }
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (getParentFragment() instanceof IDetailPartRequest) {
+            dialogCallback = (IDetailPartRequest) getParentFragment();
+        } else {
+            throw new RuntimeException(context.toString() + " must implement IDetailPartRequest");
         }
     }
 }

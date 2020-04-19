@@ -1,5 +1,6 @@
 package mdb.project.mobilemirs.View.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ public class DetailPartRequestFragment extends Fragment implements IDetailPartRe
     private RecyclerView recycler;
     private String documentId;
     private DetailPartRequestPresenter presenter;
+    private DetailPartRequestAdapter adapter;
 
     @Nullable
     @Override
@@ -46,12 +48,30 @@ public class DetailPartRequestFragment extends Fragment implements IDetailPartRe
 
     @Override
     public void connectAdapter(ArrayList<DetailPartRequestModel> detailPartRequestList) {
-        DetailPartRequestAdapter adapter = new DetailPartRequestAdapter(getContext(), detailPartRequestList);
+        if (detailPartRequestList.isEmpty()) {
+            Toast.makeText(getContext(), "There is no data available", Toast.LENGTH_SHORT).show();
+        }
+        adapter = new DetailPartRequestAdapter(getContext(), detailPartRequestList, this);
         recycler.setAdapter(adapter);
     }
 
     @Override
-    public void connectFailed(String message) {
+    public void restartAdapter(DetailPartRequestModel model) {
+        if (adapter.getDetailPartRequestList().isEmpty()) {
+            presenter.postDetailPartRequest(model, documentId);
+        } else {
+            presenter.appendDetailPartRequest(model, documentId);
+        }
+    }
+
+    @Override
+    public void removeAdapter(int position) {
+        DetailPartRequestModel currentPartDetail = adapter.getDetailPartRequestList().get(position);
+        presenter.deleteDetailPartRequest(currentPartDetail.getParentId(), currentPartDetail.getLineId());
+    }
+
+    @Override
+    public void showMessage(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
@@ -60,4 +80,5 @@ public class DetailPartRequestFragment extends Fragment implements IDetailPartRe
         DetailPartRequestDialog dialog = new DetailPartRequestDialog();
         dialog.show(this.getChildFragmentManager(), null);
     }
+
 }

@@ -6,5 +6,7 @@ import mdb.project.mobilemirs.Model.DetailPartRequestModel;
 
 public interface IDetailPartRequest {
     void connectAdapter(ArrayList<DetailPartRequestModel> detailPartRequestList);
-    void connectFailed(String message);
+    void restartAdapter(DetailPartRequestModel model);
+    void removeAdapter(int position);
+    void showMessage(String message);
 }

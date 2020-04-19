@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.75"
+                android:layout_weight="0.65"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:text="No"
@@ -50,7 +50,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
+                android:layout_weight="1.25"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:text="Document"
@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
+                android:layout_weight="1.25"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:text="Order Date"
@@ -70,10 +70,20 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.25"
+                android:layout_weight="1"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:text="Status"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.85"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="Delete"
                 android:gravity="center"
                 android:textColor="@android:color/white"/>
         </LinearLayout>
